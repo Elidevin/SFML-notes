@@ -9,9 +9,9 @@ C:\a-directory-with-the-SFML-headers-directory\;
 ```
 SFML_STATIC;
 ```
-| Dynamic linking (Debug) | Dynamic linking (Release) | Static linking (Debug) | Static linking (Release) |
-|:-:|:-:|:-:|:-:|
-| | |`SFML_STATIC`|`SFML_STATIC`|
+| Dynamic linking | Static linking |
+|:-:|:-:|
+| |`SFML_STATIC`|
 ---
 `Configuration Properties` → `C/C++` → `Code Generatio` → `[ Runtime Library ]`
 ```
@@ -28,6 +28,7 @@ C:\a-directory-with-lib-type-files\;
 ---
 `Configuration Properties` → `Linker` → `Input` → `[ Additional Dependencies ]`
 ```
+sfml-main.lib
 sfml-graphics-s.lib
 freetype.lib
 sfml-window-s.lib
@@ -47,7 +48,7 @@ winmm.lib
 ```
 | Dynamic linking (Debug) | Dynamic linking (Release) | Static linking (Debug) | Static linking (Release) |
 |:-|:-|:-|:-|
-|`sfml-graphics-d.lib`<br>`sfml-window-d.lib`<br>`sfml-network-d.lib`<br>`sfml-audio-d.lib`<br>`sfml-system-d.lib`|`sfml-graphics.lib`<br>`sfml-window.lib`<br>`sfml-network.lib`<br>`sfml-audio.lib`<br>`sfml-system.lib`|`sfml-graphics-s-d.lib`<br>`freetype.lib`<br>`sfml-window-s-d.lib`<br>`gdi32.lib`<br>`OpenGL32.lib`<br>`sfml-network-s-d.lib`<br>`ws2_32.lib`<br>`sfml-audio-s-d.lib`<br>`vorbis.lib`<br>`vorbisfile.lib`<br>`vorbisenc.lib`<br>`flac.lib`<br>`ogg.lib`<br>`OpenAL32.lib`<br>`sfml-system-s-d.lib`<br>`winmm.lib`|`sfml-graphics-s.lib`<br>`freetype.lib`<br>`sfml-window-s.lib`<br>`gdi32.lib`<br>`OpenGL32.lib`<br>`sfml-network-s.lib`<br>`ws2_32.lib`<br>`sfml-audio-s.lib`<br>`vorbis.lib`<br>`vorbisfile.lib`<br>`vorbisenc.lib`<br>`flac.lib`<br>`ogg.lib`<br>`OpenAL32.lib`<br>`sfml-system-s.lib`<br>`winmm.lib`|
+|`sfml-main-d.lib`<br>`sfml-graphics-d.lib`<br>`sfml-window-d.lib`<br>`sfml-network-d.lib`<br>`sfml-audio-d.lib`<br>`sfml-system-d.lib`|`sfml-main.lib`<br>`sfml-graphics.lib`<br>`sfml-window.lib`<br>`sfml-network.lib`<br>`sfml-audio.lib`<br>`sfml-system.lib`|`sfml-main-d.lib`<br>`sfml-graphics-s-d.lib`<br>`freetype.lib`<br>`sfml-window-s-d.lib`<br>`gdi32.lib`<br>`OpenGL32.lib`<br>`sfml-network-s-d.lib`<br>`ws2_32.lib`<br>`sfml-audio-s-d.lib`<br>`vorbis.lib`<br>`vorbisfile.lib`<br>`vorbisenc.lib`<br>`flac.lib`<br>`ogg.lib`<br>`OpenAL32.lib`<br>`sfml-system-s-d.lib`<br>`winmm.lib`|`sfml-main.lib`<br>`sfml-graphics-s.lib`<br>`freetype.lib`<br>`sfml-window-s.lib`<br>`gdi32.lib`<br>`OpenGL32.lib`<br>`sfml-network-s.lib`<br>`ws2_32.lib`<br>`sfml-audio-s.lib`<br>`vorbis.lib`<br>`vorbisfile.lib`<br>`vorbisenc.lib`<br>`flac.lib`<br>`ogg.lib`<br>`OpenAL32.lib`<br>`sfml-system-s.lib`<br>`winmm.lib`|
 
 ## SFML libraries dependencies scheme for static linking
 
@@ -87,3 +88,11 @@ graph BT;
 	linkStyle 3,4,5,6,7,8,9 stroke:blue,color:blue
 	linkStyle 0,1,2,10 stroke:red,color:red
 ```
+---
+`Configuration Properties` → `Linker` → `System` → `[ SubSystem ]`
+```
+Windows (/SUBSYSTEM:WINDOWS)
+```
+| Debug | Release |
+|:-:|:-:|
+|`Console (/SUBSYSTEM:CONSOLE)`|`Windows (/SUBSYSTEM:WINDOWS)`|
